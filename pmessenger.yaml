@@ -1,0 +1,47 @@
+# PMessenger Configuration File
+# All values can be overridden with environment variables prefixed with PMESSENGER_
+# Example: PMESSENGER_USER=alice, PMESSENGER_VERBOSE=true
+
+# User settings (required)
+# user: "alice"  # Set via --user flag or PMESSENGER_USER
+
+# Application settings
+verbose: false
+
+# Tor configuration
+tor:
+  port: 11009
+  dial_timeout: "45s"
+  hs_timeout: "30s"
+  circuit_rotate_interval: "30s"
+  # data_dir: ""  # Auto-generated if not specified
+
+# Security settings
+security:
+  key_rotation_interval: "1h"
+  max_messages_before_rotation: 50
+  hmac_size: 32
+  sequence_window_size: 1000
+
+# Network settings
+network:
+  heartbeat_interval: "30s"
+  heartbeat_timeout: "75s"
+  dummy_traffic_interval: "15s"
+  max_dummy_packets: 3
+  jitter_range_ms: 500
+
+# File settings
+files:
+  friends_filename: "friends.json"
+  config_dir: ".tor-messenger"
+
+# Traffic padding configuration
+padding:
+  min_size: 128
+  max_size: 8192
+  default_size: 1024
+  dynamic_padding: true
+  jitter_enabled: true
+  dummy_traffic: true
+  adaptive_size: true
